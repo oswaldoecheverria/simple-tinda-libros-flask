@@ -7,6 +7,10 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/login')
+def login():
+    return render_template('auth/login.html')
+
 
 #Manejador error 404
 @app.errorhandler(404)
