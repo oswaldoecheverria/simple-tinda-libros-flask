@@ -1,12 +1,14 @@
-{% extends './base.html' %} {% block title %} Inicio de Sesión {% endblock %} {%
-block customCSS %}
+{% extends './base.html' %} 
+{% block title %} Inicio de Sesión {% endblock %} 
+{%block customCSS %}
 <link
     rel="stylesheet"
     href="{{ url_for('static', filename='css/login.css') }}"
 />
 {% endblock %} {% block body %}
 
-<form class="form-signin">
+<form class="form-signin" action="/login" method="POST">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
     <img
         class="mb-4"
         src="{{ url_for('static', filename='img/flask.svg') }}"
@@ -14,33 +16,35 @@ block customCSS %}
         width="72"
         height="72"
     />
-    <h1 class="h3 mb-3 font-weight-normal">Porfavor ingrese</h1>
-    <label for="inputEmail" class="sr-only">Usuario</label>
+    <h1 class="h3 mb-3 font-weight-normal">Ingrese sus credenciales</h1>
+    <label for="usuario" class="sr-only">Usuario</label>
     <input
-        type="email"
-        id="inputEmail"
+        type="text"
+        id="usuario"
+        name="usuario"
         class="form-control"
-        placeholder="Email address"
+        placeholder="Usuario"
+        minlength="4"
+        maxlength="20"
         required
         autofocus
     />
-    <label for="inputPassword" class="sr-only">Contraseña</label>
+    <br/>
+    <label for="inputPassword" class="sr-only">Password</label>
     <input
         type="password"
-        id="inputPassword"
+        id="password"
+        name="password"
         class="form-control"
         placeholder="Password"
+        minlength="6"
         required
     />
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me" /> Guardar credenciales
-        </label>
-    </div>
+   
     <button class="btn btn-lg btn-primary btn-block" type="submit">
-        Sign in
+        Iniciar Sesi&oacute;n
     </button>
-    <p class="mt-5 mb-3 text-muted">&copy; 2023-2027</p>
+    <p class="mt-5 mb-3 text-muted">&copy; 2024</p>
 </form>
 
 {% block customJS%}
