@@ -3,6 +3,11 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG =True
+    # Configuracion Mysql
+    MYSQL_HOST = 'localhost'
+    MYSQL_USER = 'root'
+    MYSQL_PASSWORD = 'abc123....'
+    MYSQL_DB = 'tienda'
 
 config = {
     'development': DevelopmentConfig,

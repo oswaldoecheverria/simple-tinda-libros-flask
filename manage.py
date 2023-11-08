@@ -1,6 +1,7 @@
 from app import app
 from config import config
 from flask_wtf.csrf import CSRFProtect
+from flask_mysqldb import MySQL
 
 
 config_core = 'development'
