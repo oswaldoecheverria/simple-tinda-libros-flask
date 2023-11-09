@@ -7,16 +7,26 @@
     </head>
     <body>
         <table>
-            {% for d in data.libros %}
-            <tr>
-                <td>{{ d[0] }}</td>
-                <td>{{ d[1] }}</td>
-                <td>{{ d[2] }}</td>
-                <td>{{ d[3] }}</td>
-                <td>{{ d[4] }}</td>
-                <td>{{ d[5] }}</td>
-            </tr>
-            {% endfor %}
+            <thead>
+                <tr>
+                    <th>ISBN</th>
+                    <th>Título</th>
+                    <th>Año de Edición</th>
+                    <th>Autor</th>
+                    <th>Precio</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for libro in data.libros %}
+                <tr>
+                    <td>{{ libro.isbn }}</td>
+                    <td>{{ libro.titulo }}</td>
+                    <td>{{ libro.anioedicion }}</td>
+                    <td>{{ libro.autor.apellido }} {{ libro.autor.nombre }}</td>
+                    <td>{{ libro.precio }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
         </table>
     </body>
 </html>
